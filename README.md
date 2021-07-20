@@ -16,14 +16,14 @@
 ### 1. Mediapipeのgitフォルダをクローン(またはDownload)
 
 ```
-$ git clone https://github.com/google/mediapipe.git
+git clone https://github.com/google/mediapipe.git
 
 ```
 
 ### 2. 上のgitフォルダをclone(またはDownload)
 
 ```
-$ git clone https://github.com/ShutoIna/mp_cpp.git
+git clone https://github.com/ShutoIna/mp_cpp.git
 
 ```
 
@@ -31,17 +31,47 @@ $ git clone https://github.com/ShutoIna/mp_cpp.git
 ### 3. 2のファイルを1のファイルと置き換える
 
 
-### 4. コマンドを実行
+### 4. 座標抽出
 
-mp_cppまで移動した後で，以下の2つのコマンドの実行に成功すると，
-
-「ID(整数)を入力して下さい ↓ 」という文字が現れます．
-適当な数字を入力してEnterを押すと，'ID_hand.csv'が生成されます
+mp_cppまで移動
 
 
-また，距離は，ピクセルの距離を計算しています．
+#### 4.1．手の座標
 
-具体的には，pythonファイルがあるフォルダまでcdした後で，以下のようなコマンドを入力してください．
+以下の2つのコマンドを実行すると，
+
+```
+bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/hand_tracking:hand_tracking_cpu
+
+```
+
+```
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt --input_video_path=(入力動画のパス) --output_video_path=(出力動画のパス)
+
+
+```
+
+「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
+適当な数字を入力してEnterを押すと，'ID_hand.csv'がmp_cppフォルダ内に生成されます
+
+#### 4.2．顔の座標
+
+以下の2つのコマンドを実行すると，
+
+```
+bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/face_mesh:face_mesh_cpu
+
+```
+
+```
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live.pbtxt --input_video_path=(入力動画のパス) --output_video_path=(出力動画のパス)
+
+
+```
+
+「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
+適当な数字を入力してEnterを押すと，'ID_face.csv'がmp_cppフォルダ内に生成されます
+
 
 ```
 $ python gui.py
