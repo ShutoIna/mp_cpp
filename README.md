@@ -1,8 +1,5 @@
 #  C++版Mediapipeを用いた顔&手の3D座標取得と，手と顔の最短距離の計算
 
-### ※3/23 GUIに対応しました．
-### ※5/13 mediapipeがアップデートしました&XYの計算に対応しました
-
 [Mediapipe](https://github.com/google/mediapipe)を用いた顔と手の座標を取得した後，指と顔の最短ポイントと最短距離を算出しています．
 
 ＊C++版を用いて行いました．
@@ -10,10 +7,9 @@
 ＊これはリアルタイム映像ではなく，すでに記録した映像で行っています．
 
 
-
 ## 実装の方法
 
-### 1. Mediapipeのgitフォルダをクローン(またはDownload)
+### 1. [Mediapipe](https://github.com/google/mediapipe)のgitフォルダをクローン(またはDownload)
 
 ```
 git clone https://github.com/google/mediapipe.git
