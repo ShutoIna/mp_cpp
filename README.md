@@ -30,8 +30,8 @@ git clone https://github.com/ShutoIna/mp_cpp.git
 
 ### 3. 1のファイルを2のファイルと置き換える
 
-mediapipe/mediapipe/graphs　←　mp_cpp/mediapipe/graphs  
-mediapipe/mediapipe/examples　←　mp_cpp/mediapipe/examples
+○ mediapipe/mediapipe/graphs　←　mp_cpp/graphs  
+○ mediapipe/mediapipe/examples　←　mp_cpp/examples
 
 として下さい．(以降は，1のmediapipeフォルダを利用)
 
