@@ -89,6 +89,9 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 
 例えば100フレームの動画の場合，100x42+1=4201行，100x468+1=46801行のcsvが生成されます．
 
+<img src="images/csv.png" width="700">
+<!-- ![folder](images/csv.png "csv") -->
 
+(handのcsv)
 
 ### 5 距離計算
