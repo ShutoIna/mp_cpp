@@ -238,7 +238,7 @@ absl::Status RunMPPGraph() {
                     for (int i = 0; i < single_hand_landmarks.landmark_size(); ++i) {
                       const auto& landmark = single_hand_landmarks.landmark(i);
                     
-                        ofs << count << ", "<< hand_id << ", "<< i << ", "<< landmark.x()*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << ", "<< endl;
+                        ofs << count << ", "<< 0 << ", "<< i << ", "<< landmark.x()*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << ", "<< endl;
                     }
                   }
             
@@ -257,7 +257,7 @@ absl::Status RunMPPGraph() {
                     for (int i = 0; i < single_hand_landmarks.landmark_size(); ++i) {
                       const auto& landmark = single_hand_landmarks.landmark(i);
                     
-                        ofs << count << ", "<< hand_id << ", "<< i << ", "<< landmark.x()*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << ", "<< endl;
+                        ofs << count << ", "<< 1 << ", "<< i << ", "<< landmark.x()*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << ", "<< endl;
                     }
                   }
             }
