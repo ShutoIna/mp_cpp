@@ -26,8 +26,8 @@ git clone https://github.com/ShutoIna/mp_cpp.git
 
 ### 3. 1の以下のフォルダを，2のフォルダと置き換える
 
-1. mediapipe/mediapipe/graphs　←　mp_cpp/graphs  
-2. mediapipe/mediapipe/examples　←　mp_cpp/examples
+1. mediapipe/mediapipe/graphs　←　mp_cpp/graphs  (左のフォルダは不要なので削除)  
+2. mediapipe/mediapipe/examples　←　mp_cpp/examples　(左のフォルダは不要なので削除)
 
 として下さい．(以降は，1のmediapipeフォルダを利用)
 
