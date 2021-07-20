@@ -78,7 +78,7 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 2行目以降は，左から
 1. フレーム数(1~C)
 2. 左手(0)or右手(1)※顔のcsvでは全て0
-3. インデックス(骨格番号)※手は0~20，顔は0~467
+3. インデックス(骨格番号)※手は0〜20，顔は0〜467
 4. x座標(0~W)
 5. y座標(0~H)
 6. z座標(-W~W)
@@ -87,7 +87,7 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 
 検出されないフレームに関しては，全ての座標を0としました．
 
-例えば100フレームの動画の場合，100*42+1=4201行，100*468+1=46801行のcsvが生成されます．
+例えば100フレームの動画の場合，100x42+1=4201行，100x468+1=46801行のcsvが生成されます．
 
 
 
