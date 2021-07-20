@@ -170,6 +170,7 @@ absl::Status RunMPPGraph() {
     mediapipe::Packet packet_handedness;
     
     if (!poller.Next(&packet)) break;
+    auto &output_frame = packet.Get<mediapipe::ImageFrame>();
       // check whether the packet exists
     if (!poller_presence.Next(&packet_presence)) break;
     auto is_landmark_present = packet_presence.Get<bool>();
@@ -190,7 +191,7 @@ absl::Status RunMPPGraph() {
               // do something
 //            }
   //        }
-    auto &output_frame = packet.Get<mediapipe::ImageFrame>();
+   // auto &output_frame = packet.Get<mediapipe::ImageFrame>();
     auto &output_landmarks = packet_landmarks.Get<std::vector<mediapipe::NormalizedLandmarkList>>();
    // auto &output_detections = packet_detections.Get<std::vector<mediapipe::Detection>>();
     auto &output_handedness = packet_handedness.Get<std::vector<mediapipe::ClassificationList>>();
@@ -205,7 +206,6 @@ absl::Status RunMPPGraph() {
                 }
               }*/
     
-            
     //add
     LOG(INFO) << "#Multi Hand landmarks: " << output_landmarks.size();
    // LOG(INFO) << "#Multi Hand detections: " << output_detections.size();
@@ -262,9 +262,7 @@ absl::Status RunMPPGraph() {
                   }
             }
         }
-
-        
-      
+    }
     // Convert back to opencv for display or saving.
     cv::Mat output_frame_mat = mediapipe::formats::MatView(&output_frame);
     cv::cvtColor(output_frame_mat, output_frame_mat, cv::COLOR_RGB2BGR);
@@ -283,8 +281,7 @@ absl::Status RunMPPGraph() {
       const int pressed_key = cv::waitKey(5);
       if (pressed_key >= 0 && pressed_key != 255) grab_frames = false;
     }
-    }
-    
+    //}
   }
 
   LOG(INFO) << "Shutting down.";

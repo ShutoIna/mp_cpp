@@ -149,6 +149,7 @@ absl::Status RunMPPGraph() {
     mediapipe::Packet packet_landmarks;
 
     if (!poller.Next(&packet)) break;
+    auto &output_frame = packet.Get<mediapipe::ImageFrame>();
       // check whether the packet exists
     if (!poller_presence.Next(&packet_presence)) break;
     auto is_landmark_present = packet_presence.Get<bool>();
@@ -166,7 +167,7 @@ absl::Status RunMPPGraph() {
               // do something
 //            }
   //        }
-    auto &output_frame = packet.Get<mediapipe::ImageFrame>();
+    //auto &output_frame = packet.Get<mediapipe::ImageFrame>();
     auto &output_landmarks = packet_landmarks.Get<std::vector<mediapipe::NormalizedLandmarkList>>();
    // auto &output_detections = packet_detections.Get<std::vector<mediapipe::Detection>>();
 
@@ -181,17 +182,11 @@ absl::Status RunMPPGraph() {
         LOG(INFO) << "Hand [" << hand_id << "]:";
         for (int i = 0; i < single_hand_landmarks.landmark_size(); ++i) {
           const auto& landmark = single_hand_landmarks.landmark(i);
-        //  LOG(INFO) << "\tLandmark [" << i << "]: ("
-         //          << landmark.x() << ", "
-          //         << landmark.y() << ", "
-          //  << landmark.z() << ")";
-           // LOG(INFO)   << landmark.visibility() ;
-            //LOG(INFO)   << landmark.presence() << ")";
+    
             ofs <<count<<","<< hand_id << ", "<< i << ", "<< landmark.x()*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << ", "<< endl;
         }
       }
-
-
+    }
     // Convert back to opencv for display or saving.
     cv::Mat output_frame_mat = mediapipe::formats::MatView(&output_frame);
     cv::cvtColor(output_frame_mat, output_frame_mat, cv::COLOR_RGB2BGR);
@@ -210,7 +205,7 @@ absl::Status RunMPPGraph() {
       const int pressed_key = cv::waitKey(5);
       if (pressed_key >= 0 && pressed_key != 255) grab_frames = false;
     }
-    }
+    //}
 
   }
 
