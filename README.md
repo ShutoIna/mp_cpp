@@ -24,16 +24,16 @@ git clone https://github.com/ShutoIna/mp_cpp.git
 ```
 
 
-### 3. 1のファイルを2のファイルと置き換える
+### 3. 1の以下のフォルダを，2のフォルダと置き換える
 
-○ mediapipe/mediapipe/graphs　←　mp_cpp/graphs  
-○ mediapipe/mediapipe/examples　←　mp_cpp/examples
+1. mediapipe/mediapipe/graphs　←　mp_cpp/graphs  
+2. mediapipe/mediapipe/examples　←　mp_cpp/examples
 
 として下さい．(以降は，1のmediapipeフォルダを利用)
 
 ### 4. 座標抽出
 
-mediapipeフォルダまでコマンドラインで移動
+mediapipeフォルダまでコマンドラインで移動(cd mediapipe)
 
 
 #### 4.1．手の座標
@@ -72,6 +72,20 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 
 
 #### csvの説明
+
+各csvの1行目は，動画の横サイズ(W)，縦サイズ(H)，総フレーム数(C)，fpsが表示されます．
+
+2行目以降は，左から
+1. フレーム数(1~C)
+2. 左手(0)or右手(1)※顔のcsvでは全て0
+3. インデックス(骨格番号)※手は0~20，顔は0~467
+4. x座標(0~W)
+5. y座標(0~H)
+6. z座標(-W~W)
+
+を表しています．
+
+そのため，例えば100フレームの動画の場合，100*42+1=4201行，100*468+1=46801行のcsvが生成されます．
 
 
 
