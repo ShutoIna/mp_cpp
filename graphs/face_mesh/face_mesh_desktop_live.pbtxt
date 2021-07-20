@@ -62,7 +62,6 @@ node {
   input_stream: "DETECTIONS:face_detections"
   output_stream: "IMAGE:output_video"
 }
-
 # add PacketPresenceCalculator
 node {
   calculator: "PacketPresenceCalculator"
