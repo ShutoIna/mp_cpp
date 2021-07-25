@@ -16,7 +16,7 @@ git clone https://github.com/google/mediapipe.git
 
 ```
 
-実装の方法は，[公式のページ](https://google.github.io/mediapipe/getting_started/install.html)を参考にしてください
+実装の方法は，[公式のページ](https://google.github.io/mediapipe/getting_started/install.html)，[個人が書かれたブログ](http://kunsen.net/2021/01/30/post-3543/)を参考にしてください
 
 ### 2. 上のgitフォルダをclone(またはDownload)
 
