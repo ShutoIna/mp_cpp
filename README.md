@@ -33,12 +33,24 @@ git clone https://github.com/ShutoIna/mp_cpp.git
 
 として下さい．(以降は，1のmediapipeフォルダを利用)
 
-### 4. 座標抽出
+### 4. コマンドによるディレクトリ作成
 
-mediapipeフォルダまでコマンドラインで移動(cd mediapipe)
+管理を容易にするために，データ保管用フォルダを作成します．Dataフォルダを作成し，各ユーザの情報をID毎に分けて保管します．
 
+(方法) mediapipeフォルダまでコマンドラインで移動(cd)した後，データ保管用フォルダを作成(mkdir)  
+＊フォルダ名は，必ず**ID(整数)** として下さい(例えば，IDが5678なら，下の様に入力)
 
-#### 4.1．手の座標
+```
+
+cd mediapipe
+
+```
+```
+mkdir -p ../Data/5678←(数字部分は適宜変える)
+
+```
+
+#### 5.1．手の座標
 
 以下の2つのコマンドを実行すると，
 
@@ -48,14 +60,14 @@ bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/h
 ```
 
 ```
-GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt --input_video_path=(入力動画のパス) --output_video_path=(出力動画のパス)
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt --input_video_path=(入力動画のパス) --output_video_path=../Data/固有のID(整数)/hand.mov
 
 ```
 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
-適当な数字を入力してEnterを押すと，**'ID_hand.csv'がmediapipeフォルダ内に生成されます**
+**4と必ず同じ数字を入力して** ，Enterを押すと，**hand.movとID_hand.csvが，Data/ID(整数)フォルダ内に生成されます**
 
-#### 4.2．顔の座標
+#### 5.2．顔の座標
 
 以下の2つのコマンドを実行すると，
 
@@ -65,12 +77,12 @@ bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/f
 ```
 
 ```
-GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live.pbtxt --input_video_path=(入力動画のパス) --output_video_path=(出力動画のパス)
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live.pbtxt --input_video_path=(入力動画のパス) --output_video_path=../Data/固有のID(整数を入力)/face.mov
 
 ```
 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
-適当な数字を入力してEnterを押すと，**'ID_face.csv'がmediapipeフォルダ内に生成されます**
+4, 5.1と同じ数字を入力してEnterを押すと，**face.movとID_face.csvが，Data/ID(整数)フォルダ内に生成されます**
 
 
 #### csvの説明
@@ -96,4 +108,18 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 
 (handのcsv例)
 
-### 5 距離計算
+### 6 顔の最適なフレーム検出
+
+```
+python index.py ../Data/固有のID(整数)/face.mov
+
+```
+とすることで，フレーム付きの動画が出力されます．動画から，最も顔のトラッキングができているフレームを入力して下さい．
+
+### 7 手と顔の距離計算
+
+```
+python index.py 89←先程のフレーム番号
+
+```
+
