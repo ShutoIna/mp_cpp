@@ -31,6 +31,10 @@ git clone https://github.com/ShutoIna/mp_cpp.git
 1. mediapipe/mediapipe/graphs　←　mp_cpp/graphs  (左のフォルダは不要なので削除)  
 2. mediapipe/mediapipe/examples　←　mp_cpp/examples　(左のフォルダは不要なので削除)
 
+また，残りのpy_filesは，上のgraphsやexamplesと同じディレクトリに入れてください
+
+3. mediapipe/mediapipe/　←　mp_cpp/py_files
+
 として下さい．(以降は，1のmediapipeフォルダを利用)
 
 ### 4. コマンドによるディレクトリ作成
@@ -101,7 +105,7 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 
 検出されないフレームに関しては，全ての座標を0としました．
 
-例えば100フレームの動画の場合，100x42+1=4201行，100x468+1=46801行のcsvが生成されます．
+例えば100フレームの動画の場合，100x42+1=4201行，100x468+1=46801行のhand.csvが生成されます．
 
 <img src="images/csv.png" width="400">
 <!-- ![folder](images/csv.png "csv") -->
@@ -111,15 +115,15 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 ### 6 顔の最適なフレーム検出
 
 ```
-python index.py ../Data/固有のID(整数)/face.mov
+python mediapipe/py_file/index.py 固有のID(整数)
 
 ```
-とすることで，フレーム付きの動画が出力されます．動画から，最も顔のトラッキングができているフレームを入力して下さい．
+とすることで，フレーム分割されたの画像が**Data/ID/face**に出力されます．画像中から，最も顔のトラッキングができているフレームを次に入力して下さい．
 
 ### 7 手と顔の距離計算
 
 ```
-python index.py 89←先程のフレーム番号
+python mediapipe/py_file/dis.py　ID(整数) 最適なフレーム番号(整数) 元動画のPath
 
 ```
-
+とすることで，元動画に接触点が付与された動画**point.mp4**が出力されます．
