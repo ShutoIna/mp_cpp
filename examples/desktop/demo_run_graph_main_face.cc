@@ -79,7 +79,7 @@ absl::Status RunMPPGraph() {
     std::cout << "ID(整数)を入力して下さい ↓ " << std::endl;
     std::cin >> a;
     //ofstream ofs(std::to_string(a)+"_face.csv");
-    ofstream ofs("../Data/"+std::to_string(a)+"/"+std::to_string(a)+"_hand.csv");
+    ofstream ofs("../Data/"+std::to_string(a)+"/"+std::to_string(a)+"_face.csv");
 
   LOG(INFO) << "Start running the calculator graph.";
   ASSIGN_OR_RETURN(mediapipe::OutputStreamPoller poller,
@@ -106,7 +106,7 @@ absl::Status RunMPPGraph() {
     int counts = capture.get(CV_CAP_PROP_FRAME_COUNT);
     // fps
     double fps = capture.get(CV_CAP_PROP_FPS);
-    ofs << W << ", "<< H << ", "<< counts << ", "<<　fps << endl;
+    //ofs << W << ", "<< H << ", "<< counts << ", "<<　fps << endl;
 
   while (grab_frames) {
       count += 1;
@@ -183,7 +183,7 @@ absl::Status RunMPPGraph() {
         for (int i = 0; i < single_hand_landmarks.landmark_size(); ++i) {
           const auto& landmark = single_hand_landmarks.landmark(i);
     
-            ofs <<count<<","<< hand_id << ", "<< i << ", "<< landmark.x()*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << ", "<< endl;
+            ofs <<count<<","<< hand_id << ", "<< i << ", "<< (1-landmark.x())*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << endl;
         }
       }
     }

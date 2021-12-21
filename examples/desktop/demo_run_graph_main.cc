@@ -126,7 +126,7 @@ absl::Status RunMPPGraph() {
     int counts = capture.get(CV_CAP_PROP_FRAME_COUNT);
     // fps
     double fps = capture.get(CV_CAP_PROP_FPS);
-    ofs << W << ", "<< H << ", "<< counts << ", "<<　fps << endl;
+    //ofs << W << ", "<< H << ", "<< counts << ", "<<　fps << endl;
     
   while (grab_frames) {
       count += 1;
@@ -178,10 +178,10 @@ absl::Status RunMPPGraph() {
      // ofs << "Frame" << ", "<<　count << ", "<< "Presence" << ", "<<　is_landmark_present << endl;
       if (!is_landmark_present) {
           for (int ii = 0; ii <21 ; ++ii) {
-              ofs << count << ", "<< 1 << ", "<< ii << ", "<< 0 << ", "<< 0 << ", "<< 0 << ", "<< endl;
+              ofs << count << ", "<< 1 << ", "<< ii << ", "<< 0 << ", "<< 0 << ", "<< 0 << endl;
       }
           for (int ii = 0; ii <21 ; ++ii) {
-              ofs << count << ", "<< 2 << ", "<< ii << ", "<< 0 << ", "<< 0 << ", "<< 0 << ", "<< endl;
+              ofs << count << ", "<< 2 << ", "<< ii << ", "<< 0 << ", "<< 0 << ", "<< 0 << endl;
       }
       }
     if (is_landmark_present) {
@@ -224,7 +224,7 @@ absl::Status RunMPPGraph() {
           //  << landmark.z() << ")";
            // LOG(INFO)   << landmark.visibility() ;
             //LOG(INFO)   << landmark.presence() << ")";
-            ofs << count << ", "<< hand_id << ", "<< i << ", "<< landmark.x()*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << ", "<< endl;
+            ofs << count << ", "<< hand_id << ", "<< i << ", "<< (1-landmark.x())*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << endl;
         }}}
     if(output_landmarks.size()==1){
         auto& h = output_handedness[0];
@@ -238,17 +238,17 @@ absl::Status RunMPPGraph() {
                     for (int i = 0; i < single_hand_landmarks.landmark_size(); ++i) {
                       const auto& landmark = single_hand_landmarks.landmark(i);
                     
-                        ofs << count << ", "<< 0 << ", "<< i << ", "<< landmark.x()*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << ", "<< endl;
+                        ofs << count << ", "<< 0 << ", "<< i << ", "<< (1-landmark.x())*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << endl;
                     }
                   }
             
             for (int ii = 0; ii <21 ; ++ii) {
-                ofs << count << ", "<< 1 << ", "<< ii << ", "<< 0 << ", "<< 0 << ", "<< 0 << ", "<< endl;
+                ofs << count << ", "<< 1 << ", "<< ii << ", "<< 0 << ", "<< 0 << ", "<< 0 << endl;
             }
             }
         if(c.index()==1){
             for (int ii = 0; ii <21 ; ++ii) {
-                ofs << count << ", "<< 0 << ", "<< ii << ", "<< 0 << ", "<< 0 << ", "<< 0 << ", "<< endl;
+                ofs << count << ", "<< 0 << ", "<< ii << ", "<< 0 << ", "<< 0 << ", "<< 0 << endl;
         }
             int hand_id = -1;
             for (const auto& single_hand_landmarks: output_landmarks){
@@ -257,7 +257,7 @@ absl::Status RunMPPGraph() {
                     for (int i = 0; i < single_hand_landmarks.landmark_size(); ++i) {
                       const auto& landmark = single_hand_landmarks.landmark(i);
                     
-                        ofs << count << ", "<< 1 << ", "<< i << ", "<< landmark.x()*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << ", "<< endl;
+                        ofs << count << ", "<< 1 << ", "<< i << ", "<< (1-landmark.x())*W << ", "<< (1-landmark.y())*H << ", "<< landmark.z()*W << endl;
                     }
                   }
             }

@@ -31,9 +31,9 @@ git clone https://github.com/ShutoIna/mp_cpp.git
 1. mediapipe/mediapipe/graphs　←　mp_cpp/graphs  (左のフォルダは不要なので削除)  
 2. mediapipe/mediapipe/examples　←　mp_cpp/examples　(左のフォルダは不要なので削除)
 
-また，残りのpy_filesは，上のgraphsやexamplesと同じディレクトリに入れてください
+また，残りのpy_fileは，上のgraphsやexamplesと同じディレクトリに入れてください
 
-3. mediapipe/mediapipe/　←　mp_cpp/py_files
+3. mediapipe/mediapipe/　←　mp_cpp/py_file
 
 として下さい．(以降は，1のmediapipeフォルダを利用)
 
@@ -42,7 +42,11 @@ git clone https://github.com/ShutoIna/mp_cpp.git
 管理を容易にするために，データ保管用フォルダを作成します．Dataフォルダを作成し，各ユーザの情報をID毎に分けて保管します．
 
 (方法) mediapipeフォルダまでコマンドラインで移動(cd)した後，データ保管用フォルダを作成(mkdir)  
-＊フォルダ名は，必ず**ID(整数)** として下さい(例えば，IDが5678なら，下の様に入力)
+＊フォルダ名は，必ず**ID(整数)** として下さい(例えば，IDが5678なら，下の様に入力)  
+
+＊「ID=5678」では，変数IDに5678を設定することで，以降「$ID」で参照が可能になります．．
+
+＊「=」の左右にスペースを入れないで下さい．(入れるとエラーとなります．)
 
 ```
 
@@ -50,9 +54,28 @@ cd mediapipe
 
 ```
 ```
-mkdir -p ../Data/5678←(数字部分は適宜変える)
+ID=5678
+
+mkdir -p ../Data/$ID
 
 ```
+#### 5.0．動画のパス作成&コピー
+
+コマンドをより簡潔にするために，入力する動画のパスを，以下のように変数inpに代入します．  
+以降，$inpで参照されます．(動画を変えたいときは，都度inpを書き換えて下さい)
+
+```
+inp=(入力動画のパス)
+
+```
+また，元動画を新たに作成したフォルダにコピーします．
+
+```
+cp $inp ../Data/$ID
+
+```
+
+
 
 #### 5.1．手の座標
 
@@ -64,12 +87,12 @@ bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/h
 ```
 
 ```
-GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt --input_video_path=(入力動画のパス) --output_video_path=../Data/固有のID(整数)/hand.mov
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt --input_video_path=$inp --output_video_path=../Data/$ID/hand.mov
 
 ```
 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
-**4と必ず同じ数字を入力して** ，Enterを押すと，**hand.movとID_hand.csvが，Data/ID(整数)フォルダ内に生成されます**
+**4と必ず同じ数字(ID)を入力して** ，Enterを押すと，**hand.movとID_hand.csvが，Data/ID(整数)フォルダ内に生成されます**
 
 #### 5.2．顔の座標
 
@@ -81,12 +104,12 @@ bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/f
 ```
 
 ```
-GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live.pbtxt --input_video_path=(入力動画のパス) --output_video_path=../Data/固有のID(整数を入力)/face.mov
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live.pbtxt --input_video_path=$inp --output_video_path=../Data/$ID/face.mov
 
 ```
 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
-4, 5.1と同じ数字を入力してEnterを押すと，**face.movとID_face.csvが，Data/ID(整数)フォルダ内に生成されます**
+4, 5.1と同じ数字(ID)を入力してEnterを押すと，**face.movとID_face.csvが，Data/ID(整数)フォルダ内に生成されます**
 
 
 #### csvの説明
@@ -118,7 +141,7 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 python mediapipe/py_file/index.py 固有のID(整数)
 
 ```
-とすることで，フレーム分割されたの画像が**Data/ID/face**に出力されます．画像中から，最も顔のトラッキングができているフレームを次に入力して下さい．
+とすることで，フレーム分割された画像が**Data/ID/face**に出力されます．画像中から，最も顔のトラッキングができている画像のフレーム番号を次に入力して下さい．
 
 ### 7 手と顔の距離計算
 
