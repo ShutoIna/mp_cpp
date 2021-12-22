@@ -130,7 +130,7 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 
 検出されないフレームに関しては，全ての座標を0としました．
 
-例えば100フレームの動画の場合，100x42+1=4201行，100x468+1=46801行のhand.csvが生成されます．
+例えば100フレームの動画の場合，100x42=420行(hand.csv)，100x468=46800行(face.csv)となります．
 
 <img src="images/csv.png" width="400">
 <!-- ![folder](images/csv.png "csv") -->
@@ -145,9 +145,9 @@ python pyfiles/facesp.py
 ```
 とすることで，IDを入力した後,  
 
-フレーム分割された画像が**Data/ID/face_pic**に出力されます．  
+フレーム分割された画像が**Data/ID/face_picフォルダ**に出力されます．  
 
-また，同時に，元動画の分割画像も**Data/ID/pic**に出力されます．
+また，同時に，元動画の分割画像も**Data/ID/picフォルダ**に出力されます．
 
 
 ### 7 手と顔の距離計算&接触部分の可視化
