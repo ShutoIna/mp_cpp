@@ -33,7 +33,7 @@ git clone https://github.com/ShutoIna/mp_cpp.git
 
 また，残りのpy_fileは，上のgraphsやexamplesと同じディレクトリに入れてください
 
-3. mediapipe/mediapipe/　←　mp_cpp/py_file
+3. mediapipe/mediapipe/　←　mp_cpp/pyfiles
 
 として下さい．(以降は，1のmediapipeフォルダを利用)
 
@@ -140,7 +140,7 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 ### 6 顔の最適なフレーム検出
 
 ```
-python pyfiles/facesp.py 
+python mediapipe/pyfiles/facesp.py 
 
 ```
 とすることで，IDを入力した後,  
@@ -153,7 +153,7 @@ python pyfiles/facesp.py
 ### 7 手と顔の距離計算&接触部分の可視化
 
 ```
-python pyfiles/gui4.py
+python mediapipe/pyfiles/gui4.py
 
 ```
 とすることで，GUIアプリが立ち上がり，mp_pythonとほぼ同様の内容ができます．
