@@ -148,7 +148,8 @@ python pyfiles/facesp.py
 とすることで，IDを入力した後,  
 
 フレーム分割された画像が**Data/ID/face_pic**に出力されます．  
-同時に，元動画の分割画像も出力されます．
+
+また，同時に，元動画の分割画像も出力されます．
 
 
 ### 7 手と顔の距離計算&接触部分の可視化
@@ -168,3 +169,5 @@ python pyfiles/gui4.py
 
 <img src="images/gui4.png" width="600">
 <!-- ![folder](images/gui4.png "gui4") -->
+
+(gui4.pyの起動画面)
