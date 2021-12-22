@@ -42,7 +42,7 @@ git clone https://github.com/ShutoIna/mp_cpp.git
 管理を容易にするために，データ保管用フォルダを作成します．Dataフォルダを作成し，各ユーザの情報をID毎に分けて保管します．
 
 (方法) mediapipeフォルダまでコマンドラインで移動(cd)した後，データ保管用フォルダを作成(mkdir)  
-＊フォルダ名は，必ず**ID(整数)** として下さい(例えば，IDが5678なら，下の様に入力)  
+＊フォルダ名は，必ず**ID(整数，アルファベット，アンダーバー_の組み合わせ)** として下さい(例えば，IDが5678なら，下の様に入力)  
 
 ＊「ID=5678」では，変数IDに5678を設定することで，以降「$ID」で参照が可能になります．．
 
@@ -98,7 +98,7 @@ bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/h
 ```
 
 ```
-GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt --input_video_path=$inp --output_video_path=../Data/$ID/$ID_hand.mov
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt --input_video_path=$inp --output_video_path=../Data/$ID/${ID}_hand.mov
 
 ```
 
@@ -115,12 +115,12 @@ bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/f
 ```
 
 ```
-GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live.pbtxt --input_video_path=$inp --output_video_path=../Data/$ID/$ID_face.mov
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live.pbtxt --input_video_path=$inp --output_video_path=../Data/$ID/${ID}_face.mov
 
 ```
 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
-4, 5.1と同じ数字(ID)を入力してEnterを押すと，**ID_face.movとID_face.csvが，Data/ID(整数)フォルダ内に生成されます**
+4, 5.1と同じ数字(ID)を入力してEnterを押すと，**face_ID.movとID_face.csvが，Data/ID(整数)フォルダ内に生成されます**
 
 ここまでで，以下の様なファイルが生成されます．
 
