@@ -98,12 +98,12 @@ bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/h
 ```
 
 ```
-GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt --input_video_path=$inp --output_video_path=../Data/$ID/hand.mov
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_tracking_cpu --calculator_graph_config_file=mediapipe/graphs/hand_tracking/hand_tracking_desktop_live.pbtxt --input_video_path=$inp --output_video_path=../Data/$ID/$ID_hand.mov
 
 ```
 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
-**4と必ず同じ数字(ID)を入力して** ，Enterを押すと，**hand.movとID_hand.csvが，Data/ID(整数)フォルダ内に生成されます**
+**4と必ず同じ数字(ID)を入力して** ，Enterを押すと，**ID_hand.movとID_hand.csvが，Data/ID(整数)フォルダ内に生成されます**
 
 #### 5.2．顔の座標
 
@@ -115,12 +115,12 @@ bazel build -c opt --define MEDIAPIPE_DISABLE_GPU=1 mediapipe/examples/desktop/f
 ```
 
 ```
-GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live.pbtxt --input_video_path=$inp --output_video_path=../Data/$ID/face.mov
+GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu --calculator_graph_config_file=mediapipe/graphs/face_mesh/face_mesh_desktop_live.pbtxt --input_video_path=$inp --output_video_path=../Data/$ID/$ID_face.mov
 
 ```
 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
-4, 5.1と同じ数字(ID)を入力してEnterを押すと，**face.movとID_face.csvが，Data/ID(整数)フォルダ内に生成されます**
+4, 5.1と同じ数字(ID)を入力してEnterを押すと，**ID_face.movとID_face.csvが，Data/ID(整数)フォルダ内に生成されます**
 
 
 #### csvの説明
