@@ -122,6 +122,11 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
 4, 5.1と同じ数字(ID)を入力してEnterを押すと，**ID_face.movとID_face.csvが，Data/ID(整数)フォルダ内に生成されます**
 
+ここまでで，以下の様なファイルが生成されます．
+
+<img src="images/cpp.png" width="400">
+<!-- ![folder](images/cpp.png "csv") -->
+
 
 #### csvの説明
 
@@ -156,6 +161,12 @@ python mediapipe/pyfiles/facesp.py
 
 また，同時に，元動画の分割画像も**Data/ID/picフォルダ**に出力されます．
 
+ここまでで，以下の様なファイルが生成されます．
+
+<img src="images/split.png" width="400">
+<!-- ![folder](images/split.png "csv") -->
+
+
 
 ### 7 手と顔の距離計算&接触部分の可視化
 
@@ -176,4 +187,11 @@ python mediapipe/pyfiles/gui4.py
 3. [距離計算開始]で，フレーム毎の手と顔の距離を計算し，distance.csv出力，  
 4. [位置情報付与]で，距離に基づいた接触部位の可視化を行い，ID_Video.mp4を出力しています．
 
+
+
+最終的に，以下の様な構成になります．
+
+
+<img src="images/final.png" width="400">
+<!-- ![folder](images/final.png "csv") -->
 

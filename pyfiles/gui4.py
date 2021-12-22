@@ -45,7 +45,7 @@ def button4_clicked(): #[距離計算開始]
     print('Best:',num)
     #part.csv読み込み
 
-    part_path=os.path.join(dirname,'pyfiles/part.csv')
+    part_path=os.path.join(dirname,'mediapipe/pyfiles/part.csv')
 
     #face.csv読み込み
 
