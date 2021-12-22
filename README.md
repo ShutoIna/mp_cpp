@@ -16,7 +16,7 @@ git clone https://github.com/google/mediapipe.git
 
 ```
 
-実装の方法は，[公式のページ](https://google.github.io/mediapipe/getting_started/install.html)，[個人が書かれたブログ](http://kunsen.net/2021/01/30/post-3543/)を参考にしてください
+実装の方法は，[公式のページ](https://google.github.io/mediapipe/getting_started/install.html)，[個人が書かれたブログ](http://kunsen.net/2021/01/30/post-3543/), [Bazel公式サイト](https://bazel.build/)を参考にしてください
 
 ### 2. 上のgitフォルダをclone(またはDownload)
 
@@ -103,7 +103,7 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_track
 ```
 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
-**4と必ず同じIDを入力して** ，Enterを押すと，**ID_hand.movとID_hand.csvが，Data/ID(整数)フォルダ内に生成されます**
+**4と必ず同じIDを入力して** ，Enterを押すと，**ID_hand.movとID_hand.csvが，Data/IDフォルダ内に生成されます**
 
 #### 5.2．顔の座標
 
@@ -194,4 +194,9 @@ python mediapipe/pyfiles/gui4.py
 
 <img src="images/final.png" width="400">
 <!-- ![folder](images/final.png "csv") -->
+
+実際に試してみたものを，以下のGoogle Driveに載せています．ご確認ください．
+
+https://drive.google.com/drive/folders/1RvKRAyODoowFTyk8qDdYIpyTyTcREizV?usp=sharing
+
 

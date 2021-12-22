@@ -6,7 +6,7 @@ def save_all_frames(ext='jpg'):
     a=input('IDを入力>> ')
 
     id_path=os.path.join(dir_path, a)
-    video_path=os.path.join(id_path, 'face.mov')
+    video_path=os.path.join(id_path, str(a)+'_face.mov')
     video_path2=os.path.join(id_path, str(a)+'.mov')
 
     #格納フォルダのパスを通す
@@ -54,6 +54,7 @@ def save_all_frames(ext='jpg'):
     while True:
         ret, frame = cap.read()
         if ret:
+            print(n)
             cv2.imwrite('{}_{}.{}'.format(base_path2, str(n).zfill(digit), ext), frame)
             n += 1
         else:
