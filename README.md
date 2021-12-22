@@ -147,7 +147,7 @@ python pyfiles/facesp.py
 ```
 とすることで，IDを入力した後,  
 
-フレーム分割された画像が**Data/ID/face_pic/**に出力されます．  
+フレーム分割された画像が**Data/ID/face_pic**に出力されます．  
 同時に，元動画の分割画像も出力されます．
 
 
