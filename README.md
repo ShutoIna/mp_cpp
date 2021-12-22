@@ -189,7 +189,7 @@ python mediapipe/pyfiles/gui4.py
 
 
 
-最終的に，以下の様な構成になります．
+最終的に，以下の様な構成になります．(csv3つ，動画4つ，フォルダ2つ)
 
 
 <img src="images/final.png" width="400">
