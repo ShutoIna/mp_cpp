@@ -157,7 +157,7 @@ python pyfiles/facesp.py
 python pyfiles/gui4.py
 
 ```
-とすることで，mp_pythonとほぼ同様の内容ができます．
+とすることで，GUIアプリが立ち上がり，mp_pythonとほぼ同様の内容ができます．
 
 具体的には，  
 1. 一番上の欄に今までと同じIDを入力した後，  
