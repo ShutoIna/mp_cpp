@@ -157,7 +157,7 @@ absl::Status RunMPPGraph() {
       //ofs << "Frame" << ", "<<　count << ", "<< "Presence" << ", "<<　is_landmark_present << endl;
       if (!is_landmark_present) {
             for (int ii = 0; ii <468 ; ++ii) {
-                ofs << count << ", "<< 1 << ", "<< ii << ", "<< 0 << ", "<< 0 << ", "<< 0 << ", "<< endl;
+                ofs << count << ", "<< 1 << ", "<< ii << ", "<< 0 << ", "<< 0 << ", "<< 0 << endl;
         }
         }
     if (is_landmark_present) {

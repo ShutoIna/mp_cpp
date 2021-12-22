@@ -59,7 +59,7 @@ ID=5678
 mkdir -p ../Data/$ID
 
 ```
-#### 5.0．動画のパス作成&コピー
+### 5.0．動画のパス作成&コピー
 
 コマンドをより簡潔にするために，入力する動画のパスを，以下のように変数inpに代入します．  
 以降，$inpで参照されます．(動画を変えたいときは，都度inpを書き換えて下さい)
@@ -71,7 +71,7 @@ inp=(入力動画のパス)
 また，元動画を新たに作成したフォルダにコピーします．
 
 ```
-cp $inp ../Data/$ID
+cp $inp ../Data/$ID/$ID.mov
 
 ```
 
@@ -138,15 +138,17 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 ### 6 顔の最適なフレーム検出
 
 ```
-python mediapipe/py_file/index.py 固有のID(整数)
+python pyfiles/facesp.py 
 
 ```
-とすることで，フレーム分割された画像が**Data/ID/face**に出力されます．画像中から，最も顔のトラッキングができている画像のフレーム番号を次に入力して下さい．
+とすることで，IDを入力した後,  
+
+フレーム分割された画像が**Data/ID/face_pic/**に出力されます．画像中から，最も顔のトラッキングができている画像のフレーム番号を次に入力して下さい．
 
 ### 7 手と顔の距離計算
 
 ```
-python mediapipe/py_file/dis.py　ID(整数) 最適なフレーム番号(整数) 元動画のPath
+python pyfiles/gui4.py
 
 ```
 とすることで，元動画に接触点が付与された動画**point.mp4**が出力されます．
