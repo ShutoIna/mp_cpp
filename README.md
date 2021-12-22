@@ -165,5 +165,5 @@ python pyfiles/gui4.py
 ④[位置情報付与]で，距離に基づいた接触部位の可視化を行い，ID_Video.mp4を出力しています．
 
 
-<img src="images/gui4.png" width="400">
+<img src="images/gui4.png" width="600">
 <!-- ![folder](images/gui4.png "gui4") -->
