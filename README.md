@@ -65,9 +65,10 @@ mkdir -p ../Data/$ID
 ```
 この操作により，以下の様な階層構造が形成されます．
 
-<img src="images/tree.png" width="600">
+<img src="images/tree.png" width="500">
 <!-- ![folder](images/tree.png "tree") -->
 
+以降，作成したファイルは，全てID(この場合は5678)フォルダに入れます．
 
 ### 5.0．動画のパス作成&コピー
 
