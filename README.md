@@ -103,7 +103,7 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/hand_tracking/hand_track
 ```
 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
-**4と必ず同じ数字(ID)を入力して** ，Enterを押すと，**ID_hand.movとID_hand.csvが，Data/ID(整数)フォルダ内に生成されます**
+**4と必ず同じIDを入力して** ，Enterを押すと，**ID_hand.movとID_hand.csvが，Data/ID(整数)フォルダ内に生成されます**
 
 #### 5.2．顔の座標
 
@@ -120,7 +120,7 @@ GLOG_logtostderr=1 bazel-bin/mediapipe/examples/desktop/face_mesh/face_mesh_cpu 
 ```
 
 「**ID(整数)を入力して下さい ↓** 」という文字が現れます.  
-4, 5.1と同じ数字(ID)を入力してEnterを押すと，**face_ID.movとID_face.csvが，Data/ID(整数)フォルダ内に生成されます**
+4, 5.1と同じIDを入力してEnterを押すと，**face_ID.movとID_face.csvが，Data/IDフォルダ内に生成されます**
 
 ここまでで，以下の様なファイルが生成されます．
 
