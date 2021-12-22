@@ -68,7 +68,7 @@ mkdir -p ../Data/$ID
 <img src="images/tree.png" width="500">
 <!-- ![folder](images/tree.png "tree") -->
 
-以降，作成したファイルは，全てID(この場合は5678)フォルダに入れます．
+以降，作成したファイルは，全て**Data/ID(この場合は5678)フォルダ**に入れます．
 
 ### 5.0．動画のパス作成&コピー
 
