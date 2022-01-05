@@ -199,5 +199,3 @@ python mediapipe/pyfiles/gui4.py
 
 https://drive.google.com/drive/folders/1RvKRAyODoowFTyk8qDdYIpyTyTcREizV?usp=sharing
 
-
-OK?
